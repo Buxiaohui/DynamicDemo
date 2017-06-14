@@ -13,6 +13,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,6 +27,7 @@ import java.util.List;
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
 
+import com.bxh.dynamicdemo.dynamicproxy.ProxyClient;
 import com.test.dynamic.dyinterface.IDynamic;
 
 public class MainActivity extends AppCompatActivity {
@@ -208,5 +212,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreatePanelMenu(int featureId, Menu menu) {
+        menu.add(0,0,Menu.NONE,"插件化");
+        menu.add(0,1,Menu.NONE,"Java代理");
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case 0:
+                return true;
+            case 1:
+                new ProxyClient().test();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
