@@ -29,7 +29,9 @@ import dalvik.system.PathClassLoader;
 
 import com.bxh.dynamicdemo.dynamicproxy.ProxyClient;
 import com.test.dynamic.dyinterface.IDynamic;
-
+/**
+ * demo 源于阅读 http://blog.csdn.net/jiangwei0910410003/article/details/17679823
+ * */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "BXH_dynamic";
     //动态类加载接口
